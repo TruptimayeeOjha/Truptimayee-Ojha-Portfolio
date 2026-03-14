@@ -19,7 +19,7 @@ const Copyright = () => {
                 },
             }}
         >
-            Copyright © 2026 Karunika
+            Copyright © 2026 Truptimayee
         </Typography>
     );
 };
@@ -92,7 +92,7 @@ export default function RootLayout({
     return (
         <html lang="en">
             <head>
-                <title>Karunika.work | Fullstack Developer</title>
+                <title>Truptimayee Ojha.</title>
                 <meta name="description" content={description} />
             </head>
             <body>

@@ -33,9 +33,9 @@ const Landing = () => {
                 <Nav />
                 <SideNav />
 
-                <svg viewBox="0 0 1320 120">
-                    <text x="50%" y="50%" dy=".35em" text-anchor="middle">
-                        Karunika
+                <svg viewBox="0 0 1320 120" style={{ maxWidth: '100%', height: 'auto' }}>
+                    <text x="50%" y="50%" dy=".35em" text-anchor="middle" style={{ fontSize: '100px', fontWeight: 'bold', fill: 'white' }}>
+                        Truptimayee
                     </text>
                 </svg>
 
@@ -58,7 +58,7 @@ const Landing = () => {
                         animationFillMode: "both",
                     }}
                 >
-                    Fullstack Developer
+                    SDE Apprentice
                 </Typography>
 
                 <Button

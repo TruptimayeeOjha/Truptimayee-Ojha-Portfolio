@@ -4,10 +4,8 @@ import React from "react";
 import SectionLayout from "../_components/sectionLayout";
 import Stepper from "@mui/joy/Stepper";
 import Step from "@mui/joy/Step";
-import StepIndicator from "@mui/joy/StepIndicator";
-import Card from "@mui/joy/Card";
-import CardCover from "@mui/joy/CardCover";
-import CardContent from "@mui/joy/CardContent";
+import StepIndicator, { stepIndicatorClasses } from "@mui/joy/StepIndicator";
+
 import Typography from "@mui/joy/Typography";
 import Stack from "@mui/joy/Stack";
 import ScrollAnimation from "react-animate-on-scroll";
@@ -39,9 +37,22 @@ const Education = () => {
                 <Stepper
                     orientation="vertical"
                     sx={{
-                        "--StepIndicator-size": "2rem",
+                        "--StepIndicator-size": "6rem",
                         "--Step-connectorRadius": "1rem",
                         "--Step-connectorThickness": "2px",
+                        [theme.breakpoints.down(800)]: {
+                            "--StepIndicator-size": "3rem",
+                        },
+                        [`.${stepIndicatorClasses.root}`]: {
+                            [`& img`]: {
+                                width: "100%",
+                                height: "100%",
+                                objectFit: "contain",
+                            },
+                            backgroundColor: "transparent",
+                            border: "none",
+                            borderRadius: 0,
+                        },
                     }}
                 >
                     {educations.map(
@@ -51,32 +62,41 @@ const Education = () => {
                                 location,
                                 degree,
                                 time: { start, end },
+                                logo
                             },
                             i: number
                         ) => (
                             // @ts-ignore
-                            <Step key={i}>
-                                <Stack>
-                                    <ScrollAnimation
-                                        animateIn="fadeIn"
-                                        animateOnce
+                            <Step 
+                                key={i}
+                                indicator={
+                                    <ScrollAnimation animateIn="fadeInLeft" animateOnce>
+                                        <StepIndicator>
+                                            <img src={"images/" + logo} />
+                                        </StepIndicator>
+                                    </ScrollAnimation>
+                                }
+                            >
+                                <ScrollAnimation animateIn="fadeIn" animateOnce>
+                                    <Stack
+                                        sx={(theme) => ({
+                                            ml: 6,
+                                            [theme.breakpoints.down(800)]: {
+                                                ml: 3,
+                                            },
+                                        })}
                                     >
                                         <Typography level="h3">{`${institute}, ${location}`}</Typography>
-                                    </ScrollAnimation>
-                                </Stack>
-                                <Stack>
-                                    <ScrollAnimation
-                                        animateIn="fadeIn"
-                                        animateOnce
-                                    >
-                                        {degree && (
-                                            <Typography level="title-md">
-                                                {degree}
-                                            </Typography>
-                                        )}
+                                        <Stack sx={{ mb: 1 }}>
+                                            {degree && (
+                                                <Typography level="h4">
+                                                    {degree}
+                                                </Typography>
+                                            )}
+                                        </Stack>
                                         <Typography level="body-sm">{`${start} - ${end}`}</Typography>
-                                    </ScrollAnimation>
-                                </Stack>
+                                    </Stack>
+                                </ScrollAnimation>
                             </Step>
                         )
                     )}
@@ -90,46 +110,7 @@ const Education = () => {
                     ></Step>
                 </Stepper>
 
-                <ScrollAnimation animateIn="fadeIn" animateOnce>
-                    <Card
-                        component="li"
-                        sx={{
-                            mr: 2,
-                            minHeight: "400px",
-                            maxWidth: 400,
-                            "& > div:not(:first-of-type)": {
-                                opacity: 0,
-                                transition: "0.4s ease",
-                            },
-                            "&:hover > div:not(:first-of-type)": {
-                                opacity: 1,
-                            },
-                            [theme.breakpoints.down(700)]: {
-                                mb: 4,
-                            },
-                        }}
-                    >
-                        <CardCover>
-                            <img
-                                src="images/childhood.jpg"
-                                alt="childhood picture"
-                            />
-                        </CardCover>
-                        <CardCover
-                            sx={{
-                                background:
-                                    "linear-gradient(to top, rgba(0,0,0,0.4), rgba(0,0,0,0) 200px), linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0) 300px)",
-                            }}
-                        />
-                        <CardContent sx={{ justifyContent: "flex-end" }}>
-                            <Typography level="body-xs" textColor="neutral.300">
-                                Mom captured a sweet moment of me and my brother
-                                heading to school. Grateful for the little
-                                moments :)
-                            </Typography>
-                        </CardContent>
-                    </Card>
-                </ScrollAnimation>
+
             </Stack>
         </SectionLayout>
     );

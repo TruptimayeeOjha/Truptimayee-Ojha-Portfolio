@@ -13,7 +13,7 @@ const Nav = () => {
     return (
         <Stack
             sx={(theme) => ({
-                position: "absolute",
+                position: "fixed",
                 top: 0,
                 borderBottomRightRadius: 6,
                 borderBottomLeftRadius: 6,
@@ -41,7 +41,7 @@ const Nav = () => {
                         "experience",
                         "education",
                         "skills",
-                        "blogs",
+                        "projects",
                         "contact",
                     ].map((section, i) => (
                         <React.Fragment key={section}>

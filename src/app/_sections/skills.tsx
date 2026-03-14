@@ -11,7 +11,6 @@ import ListItem from "@mui/joy/ListItem";
 import ListItemDecorator, {
     listItemDecoratorClasses,
 } from "@mui/joy/ListItemDecorator";
-import IconButton from "@mui/joy/IconButton";
 import Chip from "@mui/joy/Chip";
 import ChipDelete from "@mui/joy/ChipDelete";
 import Stack from "@mui/joy/Stack";
@@ -21,38 +20,32 @@ import ScrollAnimation from "react-animate-on-scroll";
 import Check from "@mui/icons-material/Check";
 import { useTheme } from "@mui/joy";
 import {
+    CplusplusOriginal,
+    JavaOriginal,
     JavascriptOriginal,
-    TypescriptOriginal,
-    ReactOriginal,
-    ReduxOriginal,
-    NextjsOriginal,
-    AngularOriginal,
+    Html5Original,
     Css3Original,
-    SassOriginal,
     NodejsOriginal,
-    PythonOriginal,
-    GoOriginal,
-    MongodbOriginal,
-    PostgresqlOriginal,
-    MysqlOriginal,
-    GitOriginal,
-    GithubOriginal,
-    DockerOriginal,
-    AzureOriginal,
-    TailwindcssOriginal,
-    MaterialuiOriginal,
-    ReactrouterOriginal,
-    ReactnavigationOriginal,
-    BunOriginal,
     ExpressOriginal,
-    PrismaOriginal,
-    GitPlain,
+    ReactOriginal,
+    BootstrapOriginal,
     GitlabOriginal,
-    CircleciPlain,
-    JenkinsOriginal,
-    KubernetesOriginal,
-    AmazonwebservicesOriginalWordmark,
+    PostmanOriginal,
+    MysqlOriginal,
+    GitPlain,
+    GithubOriginal,
+    NextjsOriginal,
+    NestjsOriginal, // Using nextjs icon for nest as no native icon in devicons often
+    TypescriptOriginal,
+    LaravelOriginal
 } from "devicons-react";
+import { IoLogoTableau } from "react-icons/io5";
+
+const PowerBIIcon = ({ size = 28, color = "#F2C811" }) => (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill={color} xmlns="http://www.w3.org/2000/svg">
+        <path d="M6 14v6H2v-6h4zm6-7v13H8V7h4zm6-5v18h-4V2h4z" />
+    </svg>
+);
 
 const TechnologyEntity = (
     name: string,
@@ -68,188 +61,45 @@ const TechnologyEntity = (
     };
 };
 
-// const technologies = {}
-
 const technologiesArray = [
-    // Frontend Development
-    TechnologyEntity(
-        "TypeScript",
-        "https://www.typescriptlang.org/",
-        TypescriptOriginal,
-        ["frontend", "language"]
-    ),
-    TechnologyEntity(
-        "JavaScript",
-        "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
-        JavascriptOriginal,
-        ["frontend", "language"]
-    ),
-    TechnologyEntity("React", "https://reactjs.org/", ReactOriginal, [
-        "frontend",
-        "framework",
-    ]),
-    TechnologyEntity("Redux", "https://redux.js.org/", ReduxOriginal, [
-        "frontend",
-        "state management",
-    ]),
-    TechnologyEntity("Next.js", "https://nextjs.org/", NextjsOriginal, [
-        "frontend",
-        "framework",
-        "SSR",
-    ]),
-    TechnologyEntity("Angular", "https://angular.io/", AngularOriginal, [
-        "frontend",
-        "framework",
-    ]),
-    TechnologyEntity(
-        "CSS3",
-        "https://developer.mozilla.org/en-US/docs/Web/CSS",
-        Css3Original,
-        ["frontend", "style"]
-    ),
-    TechnologyEntity("Sass", "https://sass-lang.com/", SassOriginal, [
-        "frontend",
-        "style",
-        "preprocessor",
-    ]),
-    TechnologyEntity(
-        "TailwindCSS",
-        "https://tailwindcss.com/",
-        TailwindcssOriginal,
-        ["frontend", "style", "utility"]
-    ),
-    TechnologyEntity("Material-UI", "https://mui.com/", MaterialuiOriginal, [
-        "frontend",
-        "style",
-        "UI library",
-    ]),
+    // Languages
+    TechnologyEntity("C++", "https://cplusplus.com/", CplusplusOriginal, ["language"]),
+    TechnologyEntity("Java", "https://www.java.com/", JavaOriginal, ["language"]),
+    TechnologyEntity("JavaScript", "https://developer.mozilla.org/", JavascriptOriginal, ["language", "frontend"]),
+    TechnologyEntity("TypeScript", "https://www.typescriptlang.org/", TypescriptOriginal, ["language", "frontend"]),
+    TechnologyEntity("HTML", "https://developer.mozilla.org/", Html5Original, ["language", "frontend"]),
+    TechnologyEntity("CSS", "https://developer.mozilla.org/", Css3Original, ["language", "frontend"]),
 
-    // Mobile Development
-    TechnologyEntity(
-        "React Native",
-        "https://reactnative.dev/",
-        ReactOriginal,
-        ["mobile", "framework"]
-    ),
-    TechnologyEntity(
-        "React Navigation",
-        "https://reactnavigation.org/",
-        ReactnavigationOriginal,
-        ["mobile", "library", "navigation"]
-    ),
-    TechnologyEntity("Expo", "https://expo.dev/", null, [
-        "mobile",
-        "framework",
-        "tooling",
-    ]),
+    // Frameworks & Libraries
+    TechnologyEntity("React.js", "https://reactjs.org/", ReactOriginal, ["framework", "frontend"]),
+    TechnologyEntity("Next.js", "https://nextjs.org/", NextjsOriginal, ["framework", "frontend"]),
+    TechnologyEntity("Node.js", "https://nodejs.org/", NodejsOriginal, ["framework", "backend"]),
+    TechnologyEntity("Express.js", "https://expressjs.com/", ExpressOriginal, ["framework", "backend"]),
+    TechnologyEntity("NestJS", "https://nestjs.com/", NestjsOriginal || NextjsOriginal, ["framework", "backend"]),
+    TechnologyEntity("Laravel", "https://laravel.com/", LaravelOriginal, ["framework", "backend"]),
+    TechnologyEntity("Bootstrap", "https://getbootstrap.com/", BootstrapOriginal, ["framework", "frontend"]),
 
-    // Backend Development
-    TechnologyEntity("Node.js", "https://nodejs.org/", NodejsOriginal, [
-        "backend",
-        "language",
-    ]),
-    TechnologyEntity("Bun.js", "https://bun.sh/", BunOriginal, [
-        "backend",
-        "language",
-        "runtime",
-    ]),
-    TechnologyEntity("Go", "https://golang.org/", GoOriginal, [
-        "backend",
-        "language",
-    ]),
-    TechnologyEntity("Python", "https://www.python.org/", PythonOriginal, [
-        "backend",
-        "language",
-    ]),
-    TechnologyEntity("Express.js", "https://expressjs.com/", ExpressOriginal, [
-        "backend",
-        "framework",
-    ]),
-    TechnologyEntity("NestJS", "https://nestjs.com/", NextjsOriginal, [
-        "backend",
-        "framework",
-    ]),
-    TechnologyEntity("Prisma", "https://www.prisma.io/", PrismaOriginal, [
-        "backend",
-        "ORM",
-    ]),
+    // Databases
+    TechnologyEntity("MySQL", "https://www.mysql.com/", MysqlOriginal, ["database"]),
 
-    // Database
-    TechnologyEntity("MongoDB", "https://www.mongodb.com/", MongodbOriginal, [
-        "database",
-        "NoSQL",
-        "SQL driver",
-    ]),
-    TechnologyEntity(
-        "PostgreSQL",
-        "https://www.postgresql.org/",
-        PostgresqlOriginal,
-        ["database", "SQL", "SQL driver"]
-    ),
-    TechnologyEntity("MySQL", "https://www.mysql.com/", MysqlOriginal, [
-        "database",
-        "SQL",
-        "SQL driver",
-    ]),
-
-    // DevOps
-    TechnologyEntity("Git", "https://git-scm.com/", GitPlain, [
-        "devops",
-        "version control",
-    ]),
-    TechnologyEntity("GitHub", "https://github.com/", GithubOriginal, [
-        "devops",
-        "version control",
-        "repository",
-    ]),
-    TechnologyEntity("GitLab", "https://about.gitlab.com/", GitlabOriginal, [
-        "devops",
-        "version control",
-        "repository",
-    ]),
-    TechnologyEntity("CircleCI", "https://circleci.com/", CircleciPlain, [
-        "devops",
-        "ci/cd",
-    ]),
-    TechnologyEntity("Jenkins", "https://www.jenkins.io/", JenkinsOriginal, [
-        "devops",
-        "ci/cd",
-    ]),
-    TechnologyEntity("Docker", "https://www.docker.com/", DockerOriginal, [
-        "devops",
-        "containerization",
-    ]),
-    TechnologyEntity(
-        "Kubernetes",
-        "https://kubernetes.io/",
-        KubernetesOriginal,
-        ["devops", "orchestration"]
-    ),
-
-    // Cloud Platforms
-    TechnologyEntity(
-        "AWS",
-        "https://aws.amazon.com/",
-        AmazonwebservicesOriginalWordmark,
-        ["cloud", "platform"]
-    ),
-    TechnologyEntity("Azure", "https://azure.microsoft.com/", AzureOriginal, [
-        "cloud",
-        "platform",
-    ]),
+    // Tools & Version Control
+    TechnologyEntity("Git", "https://git-scm.com/", GitPlain, ["version control", "tools"]),
+    TechnologyEntity("GitHub", "https://github.com/", GithubOriginal, ["version control", "tools"]),
+    TechnologyEntity("GitLab", "https://about.gitlab.com/", GitlabOriginal, ["version control", "tools"]),
+    TechnologyEntity("Postman", "https://www.postman.com/", PostmanOriginal, ["tools"]),
+    TechnologyEntity("PowerBI", "https://powerbi.microsoft.com/", () => <PowerBIIcon size={17} color="#F2C811" />, ["tools", "visualization"]),
+    TechnologyEntity("Tableau", "https://www.tableau.com/", () => <IoLogoTableau size={17} color="#E97627" />, ["tools", "visualization"])
 ];
 
 const keywords: { [key: string]: string[] } = {
-    domain: ["frontend", "backend", "mobile", "database", "devops", "cloud"],
+    domain: ["frontend", "backend"],
     type: [
         "language",
-        "runtime",
         "framework",
-        "preprocessor",
-        "SQL driver",
-        "platrom",
-        "ci/cd",
+        "database",
+        "tools",
         "version control",
+        "visualization",
     ],
 };
 
@@ -333,7 +183,7 @@ const Skills = () => {
     const clickHandler = (value: string) => {
         setFilter((prev) => prev.filter((val) => val !== value));
     };
-    // const theme = useTheme()
+
     return (
         <SectionLayout odd name="skills">
             <ScrollAnimation animateIn="fadeIn" animateOnce>
@@ -378,9 +228,9 @@ const Skills = () => {
                                         value={value}
                                         sx={{
                                             [`&.${optionClasses.selected} .${listItemDecoratorClasses.root}`]:
-                                                {
-                                                    opacity: 1,
-                                                },
+                                            {
+                                                opacity: 1,
+                                            },
                                         }}
                                     >
                                         <ListItemDecorator sx={{ opacity: 0 }}>

@@ -59,9 +59,9 @@ const Head = ({
         <ScrollAnimation animateIn="fadeIn" animateOnce>
             <Stack
                 sx={(theme) => ({
-                    ml: 4,
+                    ml: 6,
                     [theme.breakpoints.down(800)]: {
-                        ml: 2,
+                        ml: 3,
                     },
                 })}
             >
@@ -193,7 +193,9 @@ const Body = ({ description, tools, media }: IExperience) => {
                         </ListItemDecorator>
                         <ListItemContent>
                             <ScrollAnimation animateIn="fadeIn" animateOnce>
-                                {point}
+                                <Typography level="body-md" sx={{ textAlign: "justify" }}>
+                                    {point}
+                                </Typography>
                             </ScrollAnimation>
                         </ListItemContent>
                     </ListItem>

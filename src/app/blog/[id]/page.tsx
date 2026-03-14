@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: { params: Params }) {
             title: item.title,
             images: item.thumbnail,
             locale: 'en_US',
-            site_name: 'karunika.work',
+            site_name: 'Truptimayee Ojha',
             description: item.keywords
         }
     }

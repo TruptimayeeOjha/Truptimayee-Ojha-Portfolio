@@ -1,5 +1,5 @@
 import About from './_sections/about'
-import Blogs from './_sections/blogs'
+import Projects from './_sections/projects'
 import Contact from './_sections/contact'
 import Education from './_sections/education'
 import Experience from './_sections/experience'
@@ -14,7 +14,7 @@ const Home = () => {
             <Experience />
             <Education />
             <Skills />
-            <Blogs />
+            <Projects />
             <Contact />
         </>
     )

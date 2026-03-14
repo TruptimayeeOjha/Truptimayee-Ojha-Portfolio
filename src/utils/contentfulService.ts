@@ -24,7 +24,7 @@ const getItem = (item: any): Item => {
 }
 
 const client = contentful.createClient({
-    space: 'ud4ywsjg17po',
+    space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID!,
     environment: 'master',
     accessToken: process.env.NEXT_PUBLIC_ACCESS_TOKEN!,
 })

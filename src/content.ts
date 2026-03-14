@@ -20,6 +20,13 @@ export interface IExperience {
     media?: IMedia[];
 }
 
+export interface IProject {
+    title: string;
+    techStack: string;
+    description: string[];
+    link?: string;
+}
+
 export interface ILinkMedia {
     type: "link";
     payload: string;
@@ -37,6 +44,7 @@ export interface IEducation {
     location: string;
     time: ITime;
     degree?: string;
+    logo?: string;
 }
 
 export interface IAbout {
@@ -48,6 +56,7 @@ export interface IHomepage {
     about: IAbout;
     experience: IExperience[];
     education: IEducation[];
+    projects: IProject[];
 }
 
 export interface IContent {
@@ -57,166 +66,129 @@ export interface IContent {
 const Content: IContent = {
     homepage: {
         about: {
-            location: "Kraków, Poland",
+            location: "Keonjhar, Odisha, India",
             description:
-                "Hi! I am an experienced Full Stack Engineer, with a strong history of building, delivering, and maintaining robust industrial applications. I thrive in collaborative environments, where I excel at empowering team members to perform at their best. With a keen eye for detail, I’m dedicated to ensuring every product I work on is meticulously crafted and of the highest quality. My passion for precision and teamwork drives me to create solutions that not only meet, but exceed expectations.",
+                "I am a passionate software developer with a strong foundation in computer science, specializing in full-stack development and machine learning. I enjoy tackling complex, real-world problems and translating them into clean, scalable, and efficient code. With a continuous learning mindset and dedication to engineering excellence, I strive to build impactful software solutions that deliver seamless user experiences and drive innovation.",
         },
         experience: [
             {
                 time: {
                     start: {
-                        month: 1,
+                        month: 2,
                         year: 2026,
                     },
                     end: "Present",
                 },
-                logo: "fadv.png",
-                company: "First Advantage",
-                title: "Associate Software Engineer",
-                mode: "hybrid",
-                location: "Fabryczna Flex, Kraków",
+                logo: "hyscaler.png",
+                company: "HyScaler",
+                title: "Software Developement Engineer Intern",
+                mode: "Onsite",
+                location: "Bhubaneswar, Odisha",
                 description: [
-                    "Developed Adjudication Algorithms for Backend Fulfillment Team distribbuted across U.S.A, India and Europe.",
+                    "Undergoing hands-on training in full-stack web development and modern software engineering practices.",
+                    "Working on real-world development tasks using React, Next.js, and backend frameworks.",
+                    "Collaborating with senior developers to build scalable and maintainable code.",
+                    "Writing clean, maintainable code and participating in debugging, testing, and feature implementation."
                 ],
                 tools: [
-                    "Java",
-                    "Azure DevOps",
-                    "GCP",
-                    "PL/SQL",
-                    "PgAdmin",
-                    "Microsoft Power Tools",
-                ],
-            },
-            {
-                time: {
-                    start: {
-                        month: 3,
-                        year: 2022,
-                    },
-                    end: {
-                        month: 12,
-                        year: 2022,
-                    },
-                },
-                logo: "samsung.png",
-                company: "Samsung R&D",
-                title: "Javascript Developer",
-                mode: "hybrid",
-                location: "Warsaw Spire, Warsaw",
-                description: [
-                    "Revamped 10-year-old Content Creation tool 'WebAuthor', used on over 100K+ Commercial LFD panels globally, for the MagicINFO 9 project.",
-                    "Developed, tested and deployed features ensuring  cross-platform compatibility and conformance to the design specifications.",
-                    "Led development of the 'Supernova' monorepo widget library, focused on Social Media Cards using 3rd party APIs.",
-                ],
-                tools: [
-                    "Angular 2+",
-                    "ReactJs",
-                    "Jest",
-                    "Cypress",
-                    "StoryBook",
-                    "fp-ts",
-                    "RxJs",
-                    "Git",
-                    "Jira",
-                ],
-                media: [
-                    {
-                        type: "link",
-                        payload:
-                            "https://www.samsung.com/pl/business/display-solutions/magicinfo/",
-                    },
+                    "JavaScript",
+                    "TypeScript",
+                    "React",
+                    "Next.js",
+                    "NestJS",
+                    "Laravel",
+                    "MySQL"
                 ],
             },
             {
                 time: {
                     start: {
                         month: 1,
-                        year: 2022,
+                        year: 2025,
                     },
                     end: {
-                        month: 3,
-                        year: 2022,
+                        month: 5,
+                        year: 2025,
                     },
                 },
-                logo: "montrose.png",
-                company: "Montrose",
-                title: "React Developer",
-                mode: "office",
-                location: "Kraków, Poland",
+                logo: "nic.png",
+                company: "National Informatics Centre (NIC)",
+                title: "Project Trainee",
+                mode: "Hybrid",
+                location: "Puri, Odisha",
                 description: [
-                    "Developed Internal Web Applications that boosted the efficiency of the workflow in the company many manifolds.",
-                    "Sole frontend developer besides an intern, delivered features in a timely manner with quality and adherence to wireframes.",
-                    "Provided mentorship to interns.",
+                    "Developed a machine learning-based web application that predicts the likelihood of Heart Disease, Diabetes, and Parkinson’s Disease.",
+                    "Built and evaluated multiple ML models including Logistic Regression, SVM, Random Forest, and KNN, achieving up to 91% accuracy.",
+                    "Integrated the trained models into an interactive Streamlit interface, allowing users to input medical data and receive instant predictions.",
+                    "Enhanced model performance through data cleaning, feature scaling, and cross-validation techniques.",
+                    "Focused on usability and accessibility by providing clear prediction results and actionable feedback for end-users."
                 ],
-                tools: ["ReactJs", "Django", "TailwindCSS", "GraphQL"],
+                tools: [
+                    "Python",
+                    "Machine Learning",
+                    "Streamlit",
+                ],
+            }
+        ],
+        projects: [
+            {
+                title: "Multiple Disease Prediction System",
+                techStack: "Python, Streamlit, Machine Learning",
+                description: [
+                    "Developed a machine learning-based web application utilizing Logistic Regression, SVM, Random Forest, and KNN to predict Heart Disease, Diabetes, and Parkinson’s Disease with up to 91% accuracy via an interactive Streamlit interface."
+                ],
+                link: "https://github.com/TruptimayeeOjha/Multiple-Disease-Prediction"
             },
             {
-                time: {
-                    start: {
-                        month: 6,
-                        year: 2021,
-                    },
-                    end: {
-                        month: 12,
-                        year: 2021,
-                    },
-                },
-
-                logo: "comitium.png",
-                company: "Comitium",
-                title: "Volunteer Frontend Developer",
-                mode: "remote",
-                location: "Birmingham, U.K.",
+                title: "Employee Leave Management System",
+                techStack: "HTML, CSS, JS, Node.js, Express.js, MySQL",
                 description: [
-                    "Enhanced front-end in Vue.js, reducing development time by 15%.",
-                    "Praised for communication, coding practices, and Git proficiency.",
+                    "Developed a full-stack role-based Employee Leave Management System using Node.js, Express, and MySQL to streamline leave applications, real-time balance tracking, and secure manager approval workflows via RESTful APIs."
                 ],
-                tools: ["VueJs", "CSS", "Jira"],
-            },
+                link: "https://github.com/TruptimayeeOjha/Emplyee-Leae-Management-System"
+            }
         ],
         education: [
             {
-                institute: "Warsaw University of Technology",
-                location: "Warsaw",
-                degree: "BSc. CS (spec. Computer Systems & Networks)",
+                institute: "Utkal University",
+                location: "Vani Vihar",
+                degree: "Master of Computer Applications (CGPA: 8.4)",
                 time: {
-                    start: 2020,
-                    end: 2024,
+                    start: 2023,
+                    end: 2025,
                 },
+                logo: "utkal_university.png"
             },
             {
-                institute: "J.K.G International School",
-                location: "India",
-                degree: "Higher Secondary Education (Science Stream - PCM)",
+                institute: "Bhadrak Autonomous College",
+                location: "Bhadrak",
+                degree: "B.Sc. in Computer Science (CGPA: 9.3)",
+                time: {
+                    start: 2020,
+                    end: 2023,
+                },
+                logo: "bhadrak_college.png"
+            },
+            {
+                institute: "Jhadeswar +2 Science Residential College",
+                location: "Balasore",
+                degree: "Intermediate (Percentage: 73%)",
                 time: {
                     start: 2018,
                     end: 2020,
                 },
+                logo: "jsrc_college.png"
             },
             {
-                institute: "T.I.S.",
-                location: "Bahrain",
+                institute: "Government High School",
+                location: "Soso",
+                degree: "Matriculation (Percentage: 81%)",
                 time: {
-                    start: 2012,
-                    end: 2015,
+                    start: 2015,
+                    end: 2018,
                 },
-            },
-            {
-                institute: "Sherbourne",
-                location: "Qatar",
-                time: {
-                    start: 2009,
-                    end: 2012,
-                },
-            },
-            {
-                institute: "Sherwood Academy",
-                location: "U.A.E",
-                time: {
-                    start: 2004,
-                    end: 2009,
-                },
-            },
+                logo: "bse_odisha.png"
+            }
         ],
     },
 };

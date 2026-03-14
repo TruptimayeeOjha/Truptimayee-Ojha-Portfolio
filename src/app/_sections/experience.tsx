@@ -30,11 +30,13 @@ const Experience = () => {
                     },
                     [`.${stepIndicatorClasses.root}`]: {
                         [`& img`]: {
+                            width: "100%",
                             height: "100%",
+                            objectFit: "contain",
                         },
-                        overflow: "hidden",
-                        position: "relative",
-                        borderColor: "#fff",
+                        backgroundColor: "transparent",
+                        border: "none",
+                        borderRadius: 0,
                     },
                 }}
             >
