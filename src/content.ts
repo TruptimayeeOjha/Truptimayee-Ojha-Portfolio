@@ -112,8 +112,8 @@ const Content: IContent = {
                     },
                 },
                 logo: "nic.png",
-                company: "NIC",
-                title: "Project Trainee",
+                company: "NIC | Project Trainee",
+                title: "",
                 mode: "Hybrid",
                 location: "Puri, Odisha",
                 description: [
