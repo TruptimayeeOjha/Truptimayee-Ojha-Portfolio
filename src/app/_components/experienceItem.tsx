@@ -8,7 +8,7 @@ import Typography from "@mui/joy/Typography";
 import ListItemContent from "@mui/joy/ListItemContent";
 import ListItemDecorator from "@mui/joy/ListItemDecorator";
 import Stack from "@mui/joy/Stack";
-import East from "@mui/icons-material/East";
+import CircleIcon from "@mui/icons-material/Circle";
 import ScrollAnimation from "react-animate-on-scroll";
 import { useTheme } from "@mui/joy";
 import { IExperience } from "../../content";
@@ -60,22 +60,23 @@ const Head = ({
             <Stack
                 sx={(theme) => ({
                     ml: 6,
-                    [theme.breakpoints.down(800)]: {
-                        ml: 3,
+                    [theme.breakpoints.down("md")]: {
+                        ml: 2,
                     },
                 })}
             >
-                <Typography level="h3">{company}</Typography>
-                <Stack direction="row" spacing={1} sx={{ mb: 1 }}>
-                    <Typography level="h4">{title}</Typography>
+                <Stack direction="row" spacing={2} sx={{ mb: 0, alignItems: "center", flexWrap: "wrap" }}>
+                    <Typography level="h3">{company}</Typography>
                     <Chip
                         variant="outlined"
                         size="sm"
-                        sx={{ alignSelf: "center" }}
                     >
                         {mode}
                     </Chip>
                 </Stack>
+                {title && (
+                    <Typography level="h4" sx={{ mb: 1 }}>{title}</Typography>
+                )}
                 <Typography level="body-sm">
                     {`${mS[start.month - 1]} ${start.year} - ${
                         end === "Present"
@@ -176,19 +177,19 @@ const Body = ({ description, tools, media }: IExperience) => {
 
     return (
         <Stack
-            sx={{
+            sx={(theme) => ({
                 ml: 2,
-                [theme.breakpoints.down(800)]: {
+                [theme.breakpoints.down("md")]: {
                     ml: 0,
                 },
-            }}
+            })}
         >
             <List>
                 {description.map((point, i) => (
                     <ListItem key={i} sx={{ alignItems: "flex-start" }}>
-                        <ListItemDecorator>
+                        <ListItemDecorator sx={{ mt: 1 }}>
                             <ScrollAnimation animateIn="fadeIn" animateOnce>
-                                <East fontSize="small" />
+                                <CircleIcon sx={{ fontSize: "10px" }} />
                             </ScrollAnimation>
                         </ListItemDecorator>
                         <ListItemContent>

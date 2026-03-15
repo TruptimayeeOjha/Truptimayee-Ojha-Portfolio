@@ -58,7 +58,7 @@ const Landing = () => {
                         animationFillMode: "both",
                     }}
                 >
-                    SDE Apprentice
+                    Software Development Apprentice
                 </Typography>
 
                 <Button

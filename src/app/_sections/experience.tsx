@@ -25,8 +25,9 @@ const Experience = () => {
                     "--StepIndicator-size": "6rem",
                     "--Step-connectorRadius": "1rem",
                     "--Step-connectorThickness": "2px",
-                    [theme.breakpoints.down(800)]: {
-                        "--StepIndicator-size": "4rem",
+                    [theme.breakpoints.down("md")]: {
+                        "--StepIndicator-size": "3rem",
+                        marginLeft: "-1rem"
                     },
                     [`.${stepIndicatorClasses.root}`]: {
                         [`& img`]: {
