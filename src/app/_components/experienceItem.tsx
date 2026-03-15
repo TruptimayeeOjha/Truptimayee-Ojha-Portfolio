@@ -179,12 +179,13 @@ const Body = ({ description, tools, media }: IExperience) => {
         <Stack
             sx={(theme) => ({
                 ml: 2,
+                mt: -1,
                 [theme.breakpoints.down("md")]: {
                     ml: 0,
                 },
             })}
         >
-            <List>
+            <List sx={{ pt: 0 }}>
                 {description.map((point, i) => (
                     <ListItem key={i} sx={{ alignItems: "flex-start" }}>
                         <ListItemDecorator sx={{ mt: 1 }}>
